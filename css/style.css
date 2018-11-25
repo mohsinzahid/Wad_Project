@@ -3,7 +3,10 @@ body {
 				padding: 10px;	
  				font-family: sans-serif;
 			}
-			
+
+body {
+    padding-top: 54px;
+}
 			
 			#header {
 				
@@ -17,6 +20,17 @@ body {
 			body {
                 font-family: "Lato", sans-serif;
             }
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.card {
+    height: 100%;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
