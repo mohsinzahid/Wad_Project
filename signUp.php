@@ -3,6 +3,8 @@
 <head>
 	<title>Sign Up</title>
 	
+<?php include './admin/creatingDB.php';?>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
@@ -48,15 +50,14 @@
     <div class="signUpBox">
         <img src="images/logo3.jpg" class="Logo">
         <h1>Sign Up</h1>
-        <form>
-            <center><input type="text" name="" placeholder="Userame"></center>
-            <center><input type="Email" name="" placeholder="Email Address"></center>
-            <center><input type="Password" name="" placeholder="Password"></center>
-            <center><input type="Password" name="" placeholder="Confirm Password"></center>
-            <center><input class="signUpButton" type="Submit" name="" value="Sign Up"></center><br>
+        <form method="post" action="./admin/signup_validate.php">
+            <center><input type="text" name="userame" placeholder="Userame" required></center>
+            <center><input type="Email" name="email" placeholder="Email Address" required></center>
+            <center><input id="entered_password" type="Password" name="user_password" placeholder="Password" required></center>
+            <center><input id="entered_confirm_password" type="Password" name="confirm_password" placeholder="Confirm Password" required></center>
+            <center><input class="signUpButton" type="Submit" name="" value="Sign Up" onclick="password_check();"></center><br>
         </form>
  
     </div>
-    
 </body>
 </html>
