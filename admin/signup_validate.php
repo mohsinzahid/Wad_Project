@@ -36,7 +36,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 		$conn->query($sql);
 
 		?>
-		<meta http-equiv="refresh" content="0; URL='../login.html'" />
+		<meta http-equiv="refresh" content="0; URL='../login.php'" />
 		<?php
 	}
 
