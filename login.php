@@ -12,14 +12,14 @@ if(isset($_POST['login'])){
         $error_msg = 'Password or username is wrong, try again';
     }
     else{
-        // $_SESSION['username'] = $email;
-        // if(!empty($_POST['remember'])) {
-        //     setcookie('username', $email, time() + (10 * 365 * 24 * 60 * 60));
-        //     setcookie('password', $pass, time() + (10 * 365 * 24 * 60 * 60));
-        // } else {
-        //     setcookie('username','' );
-        //     setcookie('password', '');
-        // }
+         $_SESSION['user_email'] = $name;
+         if(!empty($_POST['remember'])) {
+             setcookie('user_email', $name, time() + (10 * 365 * 24 * 60 * 60));
+             setcookie('user_pass', $pass, time() + (10 * 365 * 24 * 60 * 60));
+         } else {
+             setcookie('user_email','' );
+             setcookie('user_pass', '');
+         }
         header('location:admin/insert_product.php?logged_in=You have successfully logged in!');
     }
 }
@@ -64,7 +64,7 @@ if(isset($_POST['login'])){
  	<h1>Login Here</h1>
  	<form method="POST">
  		<p>User name</p>
- 		<center><input type="text" name="username" placeholder="Enter userame"></center>
+ 		<center><input type="text" name="username" placeholder="Enter username"></center>
  		<p>Password</p>
  		<center><input type="Password" name="password" placeholder="Enter Password"></center>
  		<center><input type="Submit" name="login" value="login"></center><br>
