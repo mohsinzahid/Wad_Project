@@ -1,24 +1,4 @@
-<?php
-require_once "db_connection.php";
 
-$nameErr = $emailErr= "";
-$name = $email = $lnameErr = $lname ="";
-//code for check table is present are not
-	if(isset($_POST['contact us'])){
-    //getting text data from the fields
-    $fname1 = $_POST['firstname'];
-    $lname1 = $_POST['lastname'];
-    $email1 = $_POST['email'];
-    $message1 = $_POST['subject'];
-    //getting image from the field
-    $insert_m = "insert into contact (firstname,lastname,e_mail,message) 
-                  VALUES ('$fname1','$lname1','$email1','$message1');";
-    $insert_pro = mysqli_query($con, $insert_m);
-    if($insert_m){
-        header("location: ".$_SERVER['PHP_SELF']);
-    }
-}
- ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
