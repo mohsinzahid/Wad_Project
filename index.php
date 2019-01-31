@@ -18,7 +18,25 @@ require "server/functions.php";
 
     <!-- Custom styles for this template -->
     <link href="css/style2.css" rel="stylesheet">
+      <script>
+          function updateProduct() {
+              // if (str.length == 0) {
+              //     document.getElementById("products").innerHTML = "";
+              //     return;
+              // } else {
+                  document.getElementById("products").innerHTML = "";
+                  var xmlhttp = new XMLHttpRequest();
+                  xmlhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                          document.getElementById("products").innerHTML = this.responseText;
+                      }
+                  };
+                  xmlhttp.open("GET", "updateProduct.php?e=", true);
+                  xmlhttp.send();
+                  //document.getElementById('hint').innerHTML = 'loading...';
 
+          }
+      </script>
   </head>
 
   <body>
@@ -61,23 +79,10 @@ require "server/functions.php";
       </header>
 
       <!-- Page Features -->
-      <div class="row text-center">
+      <div class="row text-center" id="products">
           <?php getPro(); ?>
 
-          <!--        <div class="col-lg-3 col-md-6 mb-4">-->
-<!--          <div class="card">-->
-<!--            <img class="card-img-top" src="images/macbook_air.jpg" alt="">-->
-<!--            <div class="card-body">-->
-<!--              <h4 class="card-title">Macbook Air</h4>-->
-<!--              <p class="card-text">1.8 GHz Intel Core i5 Dual-Core 8GB of 1600 MHz LPDDR3 RAM | 128GB SSD-->
-<!--                Integrated Intel HD Graphics 6000 13.3" 1440 x 900 Glossy Display-->
-<!--                802.11ac Wi-Fi | Bluetooth 4.0 Thunderbolt 2 | USB 3.0</p>-->
-<!--            </div>-->
-<!--            <div class="card-footer">-->
-<!--              <a href="#" class="btn btn-primary">Find Out More!</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+          <!--
 <!---->
 <!--        <div class="col-lg-3 col-md-6 mb-4">-->
 <!--          <div class="card">-->
@@ -141,7 +146,9 @@ require "server/functions.php";
       </div>
       <!-- /.container -->
     </footer>
-
+    <script>
+        setInterval(updateProduct, 6000);
+    </script>
   </body>
 
 </html>
