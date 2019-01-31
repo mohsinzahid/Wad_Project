@@ -1,4 +1,4 @@
-<?phps
+<?php
 session_start();
 include ('admin/db_connection.php');
 $error_msg = '';

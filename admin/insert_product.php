@@ -1,5 +1,8 @@
 <?php
 require_once "db_connection.php";
+if(!isset($_SESSION['user_email'])){
+    header('location: login.php?not_admin=You are not Admin!');
+}
 if(isset($_POST['insert_pro'])){
     //getting text data from the fields
     $pro_title = $_POST['pro_title'];
@@ -120,7 +123,7 @@ if(isset($_POST['insert_pro'])){
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-money-bill"></i></div>
                     </div>
-                    <input class="form-control" id="pro_price" name="pro_price" placeholder="Enter Product Price">
+                    <input class="form-control" id="pro_price" name="pro_price" placeholder="Enter Product Price" pattern="(\d+)">
                 </div>
             </div>
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
